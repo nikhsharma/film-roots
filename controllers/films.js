@@ -15,6 +15,12 @@ filmRouter.put('/:id', function(req, res) {
   res.json({films: films})
 })
 
+filmRouter.delete('/:id', function(req, res) {
+  const index = req.params.id;
+  films.splice(index, 1);
+  res.json({films: films})
+})
+
 filmRouter.post('/', function(req, res) {
   const newFilm = new Film(req.body);
   films.push(newFilm);
