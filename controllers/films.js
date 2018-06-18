@@ -9,6 +9,12 @@ filmRouter.get('/:id', function(req, res) {
   res.json({film: films[index]})
 })
 
+filmRouter.put('/:id', function(req, res) {
+  const index = req.params.id;
+  films[index] = req.body;
+  res.json({films: films})
+})
+
 filmRouter.post('/', function(req, res) {
   const newFilm = new Film(req.body);
   films.push(newFilm);
