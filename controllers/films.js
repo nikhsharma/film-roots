@@ -9,8 +9,14 @@ filmRouter.get('/:id', function(req, res) {
   res.json({film: films[index]})
 })
 
+filmRouter.post('/', function(req, res) {
+  const newFilm = new Film(req.body);
+  films.push(newFilm);
+  res.json({films: films})
+})
+
 filmRouter.get('/', function(req, res) {
-  res.json({data: films});
+  res.json({films: films});
 })
 
 module.exports = filmRouter;
